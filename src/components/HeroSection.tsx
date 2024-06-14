@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import YStack from "@/ui/YStack";
-import XStack from "@/ui/XStack";
+import YStack from "@/components/ui/YStack";
+import XStack from "@/components/ui/XStack";
 // import { items } from "./data";
 // import { useColor } from "@/app/customHooks/useColor";
 // import { cn } from "@/utils/classnames"; // Make sure to implement this utility function

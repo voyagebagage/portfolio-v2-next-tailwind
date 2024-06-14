@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import XStack from "@/ui/XStack";
+import XStack from "@/components/ui/XStack";
 import { useEffect, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 // import { TriangleLogoSmall } from "./TriangleLogoSmall";
