@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import MaxWidthWrapper from "./MaxWidthWrapper";
+import YStack from "@/ui/YStack";
+import XStack from "@/ui/XStack";
 // import { items } from "./data";
 // import { useColor } from "@/app/customHooks/useColor";
 // import { cn } from "@/utils/classnames"; // Make sure to implement this utility function
@@ -45,16 +47,15 @@ const HeroSection = () => {
 
   return (
     <MaxWidthWrapper>
-      {" "}
-      <div className="w-full flex flex-col items-center">
+      <YStack className="w-full items-center">
         <div
           className={cn(
             "flex items-center justify-center w-11/12 mb-6",
             "flex-col md:flex-row"
           )}>
-          <div className="flex flex-col items-center justify-center">
+          <YStack className="items-center justify-center">
             {/* <StackCard /> */}
-            <div className="flex mt-4 mb-2">
+            <XStack className="mt-4 mb-2">
               <MotionButton
                 className="flex items-center px-3 py-2 font-semibold text-white rounded"
                 animate={{
@@ -97,11 +98,11 @@ const HeroSection = () => {
                   CV
                 </a>
               </MotionButton>
-            </div>
-          </div>
+            </XStack>
+          </YStack>
 
-          <div
-            className="relative flex items-center justify-center w-2/5 pl-2"
+          <XStack
+            className="relative items-center justify-center w-2/5 pl-2"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}>
             <Image
@@ -117,9 +118,9 @@ const HeroSection = () => {
             />
             {/* <TriangleLogo />
           <VideoModalButton isHovered={isHovered} /> */}
-          </div>
+          </XStack>
         </div>
-      </div>
+      </YStack>
     </MaxWidthWrapper>
   );
 };
