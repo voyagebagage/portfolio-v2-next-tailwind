@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import XStack from "@/ui/XStack";
 import { useEffect, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 // import { TriangleLogoSmall } from "./TriangleLogoSmall";
@@ -41,9 +42,9 @@ const NavBar = () => {
 
   return (
     <>
-      <div
+      <XStack
         className={cn(
-          "fixed top-0 w-full flex items-center justify-between backdrop-blur-lg z-[99009] max-h-[8.3vh]",
+          "fixed top-0 w-full items-center justify-between backdrop-blur-lg z-[99009] max-h-[8.3vh]",
           {
             "px-2 py-1": positionFromTop,
             "px-10 pt-1": !positionFromTop,
@@ -96,7 +97,7 @@ const NavBar = () => {
         <div className="md:hidden flex items-center">
           {/* <BurgerMenu /> */}
         </div>
-      </div>
+      </XStack>
     </>
   );
 };
