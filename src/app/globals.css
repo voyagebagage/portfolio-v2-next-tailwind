@@ -2,32 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 215 28% 12%; /* Dark blue-gray */
+    --foreground: 145 20% 85%; /* Light mint green */
+
+    --card: 215 28% 12%; /* Same as background */
+    --card-foreground: 145 20% 85%; /* Light mint green */
+
+    --popover: 215 28% 12%; /* Same as background */
+    --popover-foreground: 145 20% 85%; /* Light mint green */
+
+    --primary: 250 50% 60%; /* Light purple */
+    --primary-foreground: 145 20% 85%; /* Light mint green */
+
+    --secondary: 145 20% 85%; /* Light mint green */
+    --secondary-foreground: 250 50% 60%; /* Light purple */
+
+    --muted: 145 20% 85%; /* Light mint green */
+    --muted-foreground: 215 16% 60%; /* Grayish blue */
+
+    --accent: 250 50% 60%; /* Light purple */
+    --accent-foreground: 145 20% 85%; /* Light mint green */
+
+    --destructive: 0 50% 50%; /* Red for destructive actions */
+    --destructive-foreground: 145 20% 85%; /* Light mint green */
+
+    --border: 215 28% 40%; /* Lighter dark blue-gray */
+    --input: 215 28% 40%; /* Lighter dark blue-gray */
+    --ring: 250 50% 60%; /* Light purple */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 215 28% 12%; /* Dark blue-gray */
+    --foreground: 145 20% 85%; /* Light mint green */
+
+    --card: 215 28% 12%; /* Same as background */
+    --card-foreground: 145 20% 85%; /* Light mint green */
+
+    --popover: 215 28% 12%; /* Same as background */
+    --popover-foreground: 145 20% 85%; /* Light mint green */
+
+    --primary: 250 50% 60%; /* Light purple */
+    --primary-foreground: 145 20% 85%; /* Light mint green */
+
+    --secondary: 145 20% 85%; /* Light mint green */
+    --secondary-foreground: 250 50% 60%; /* Light purple */
+
+    --muted: 145 20% 85%; /* Light mint green */
+    --muted-foreground: 215 16% 60%; /* Grayish blue */
+
+    --accent: 250 50% 60%; /* Light purple */
+    --accent-foreground: 145 20% 85%; /* Light mint green */
+
+    --destructive: 0 50% 50%; /* Red for destructive actions */
+    --destructive-foreground: 145 20% 85%; /* Light mint green */
+
+    --border: 215 28% 40%; /* Lighter dark blue-gray */
+    --input: 215 28% 40%; /* Lighter dark blue-gray */
+    --ring: 250 50% 60%; /* Light purple */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
