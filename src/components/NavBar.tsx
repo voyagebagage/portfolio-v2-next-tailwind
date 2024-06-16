@@ -1,8 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
 import XStack from "@/components/ui/XStack";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import useItem from "@/lib/fetchItem";
 // import { TriangleLogoSmall } from "./TriangleLogoSmall";
 // import { items } from "../../landingPage/profileHeader/data";
 // import { getToken } from "@/app/utils/tokenManager";
@@ -19,6 +20,7 @@ type Props = {
 const NavBar = () => {
   //   const index = useColor();
   const [positionFromTop, setPositionFromTop] = useState(false);
+  const { data: item, isPending, isFetching } = useItem();
 
   useEffect(() => {
     // fetchName();
@@ -39,7 +41,7 @@ const NavBar = () => {
   //       setVisitingName(nameInToken);
   //     }
   //   };
-
+  console.log(item, item?.color);
   return (
     <>
       <XStack
@@ -51,14 +53,24 @@ const NavBar = () => {
           }
         )}>
         <div className="flex items-center">{/* <TriangleLogoSmall /> */}</div>
+        {/* <Text
+          fontSize="xl"
+          fontWeight="bold"
+          bgGradient={`linear(to-r, ${
+            items[index]?.color || items[0]?.color
+          },#4ff3cc)`}
+          bgClip="text"
+          ml={"-10rem"}
+        ></Text> */}
         <p
-          className={cn(
-            "text-xl font-bold bg-gradient-to-r from-teal-500 to-green-400 bg-clip-text text-transparent",
-            {
-              "ml-0": positionFromTop,
-              "ml-[-10rem]": !positionFromTop,
-            }
-          )}>
+          className={cn("text-xl font-bold bg-clip-text text-transparent", {
+            "ml-0": positionFromTop,
+            "ml-[-10rem]": !positionFromTop,
+            "text-myCyan": isPending || isFetching,
+          })}
+          style={{
+            backgroundImage: `linear-gradient(to right, ${item?.color}, #4ff3cc)`,
+          }}>
           Welcome
           {/* {visitingName} */}
         </p>
