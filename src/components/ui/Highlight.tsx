@@ -3,13 +3,14 @@ import React from "react";
 interface HighlightProps {
   query: string[];
   children: string;
-  highlightClass?: string;
+  // highlightClass?: string;
+  className?: string;
 }
 
 const Highlight: React.FC<HighlightProps> = ({
   query,
   children,
-  highlightClass = "bg-teal-100 text-teal-900 px-2 py-1 rounded-full",
+  className,
 }) => {
   if (!query || query.length === 0) return <>{children}</>;
 
@@ -23,7 +24,7 @@ const Highlight: React.FC<HighlightProps> = ({
     <span>
       {parts.map((part, index) =>
         query.some((q) => q.toLowerCase() === part.toLowerCase()) ? (
-          <span key={index} className={highlightClass}>
+          <span key={index} className={className}>
             {part}
           </span>
         ) : (

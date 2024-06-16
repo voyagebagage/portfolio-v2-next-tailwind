@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils";
 import XStack from "@/components/ui/XStack";
 import { useEffect, useRef, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import useItem from "@/lib/fetchItem";
-// import { TriangleLogoSmall } from "./TriangleLogoSmall";
-// import { items } from "../../landingPage/profileHeader/data";
+import { useColor } from "@/lib/fetchItem";
+import { TriangleLogoSmall } from "./ui/TriangleLogoSmall";
+import Highlight from "./ui/Highlight";
 // import { getToken } from "@/app/utils/tokenManager";
 // import BurgerMenu from "./BurgerMenu";
 // import MIconButton from "../../MIconButton";
@@ -20,7 +20,7 @@ type Props = {
 const NavBar = () => {
   //   const index = useColor();
   const [positionFromTop, setPositionFromTop] = useState(false);
-  const { data: item, isPending, isFetching } = useItem();
+  const { data: color, isPending, isFetching } = useColor();
 
   useEffect(() => {
     // fetchName();
@@ -41,7 +41,7 @@ const NavBar = () => {
   //       setVisitingName(nameInToken);
   //     }
   //   };
-  console.log(item, item?.color);
+  console.log(color);
   return (
     <>
       <XStack
@@ -52,24 +52,22 @@ const NavBar = () => {
             "px-10 pt-1": !positionFromTop,
           }
         )}>
-        <div className="flex items-center">{/* <TriangleLogoSmall /> */}</div>
-        {/* <Text
-          fontSize="xl"
-          fontWeight="bold"
-          bgGradient={`linear(to-r, ${
-            items[index]?.color || items[0]?.color
-          },#4ff3cc)`}
-          bgClip="text"
-          ml={"-10rem"}
-        ></Text> */}
+        <div className="flex items-center">
+          <TriangleLogoSmall />
+        </div>
+
         <p
-          className={cn("text-xl font-bold bg-clip-text text-transparent", {
-            "ml-0": positionFromTop,
-            "ml-[-10rem]": !positionFromTop,
-            "text-myCyan": isPending || isFetching,
-          })}
+          className={cn(
+            "text-xl font-bold bg-clip-text text-transparent",
+            {
+              "ml-0": positionFromTop,
+              "ml-[-10rem]": !positionFromTop,
+              "text-myCyan": isPending || isFetching,
+            }
+            // `from-${color} to-myCyan`
+          )}
           style={{
-            backgroundImage: `linear-gradient(to right, ${item?.color}, #4ff3cc)`,
+            backgroundImage: `linear-gradient(to right, ${color}, #4ff3cc)`,
           }}>
           Welcome
           {/* {visitingName} */}
@@ -85,24 +83,32 @@ const NavBar = () => {
           </AnchorLink>
         )}
         <div className="hidden md:flex justify-around gap-8">
-          <div className="cta hover:text-teal-400">
-            <AnchorLink href="#about" className="hover-underline-animation">
-              <span className="text-teal-400">00. About</span>
+          <div className="cta hover:text-teal-400 ">
+            <AnchorLink href="#about" className="hover-underline-animation ">
+              <Highlight query={["00."]} className="text-teal-400 ">
+                00. About
+              </Highlight>
             </AnchorLink>
           </div>
           <div className="cta hover:text-teal-400">
             <AnchorLink href="#work" className="hover-underline-animation">
-              <span className="text-teal-400">01. Work</span>
+              <Highlight query={["01."]} className="text-teal-400">
+                01. Work
+              </Highlight>
             </AnchorLink>
           </div>
           <div className="cta hover:text-teal-400">
             <AnchorLink href="#projects" className="hover-underline-animation">
-              <span className="text-teal-400">02. Projects</span>
+              <Highlight query={["10."]} className="text-teal-400">
+                10. Projects
+              </Highlight>
             </AnchorLink>
           </div>
           <div className="cta hover:text-teal-400">
             <AnchorLink href="#contact" className="hover-underline-animation">
-              <span className="text-teal-400">03. Contact</span>
+              <Highlight query={["11."]} className="text-teal-400">
+                11. Contact
+              </Highlight>
             </AnchorLink>
           </div>
         </div>

@@ -39,7 +39,9 @@ const WorkExperience = () => {
             ref={ref}
             initial={{ opacity: 0, y: 20 }}
             animate={animation}>
-            <Highlight query={["01.", "worked ..."]}>
+            <Highlight
+              query={["01.", "worked ..."]}
+              className="bg-teal-100 text-teal-900 px-2 py-1 rounded-full">
               01. Where I have worked ...
             </Highlight>
           </motion.h2>

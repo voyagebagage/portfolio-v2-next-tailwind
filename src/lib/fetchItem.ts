@@ -1,4 +1,5 @@
 import { QueryClient, useQuery } from "@tanstack/react-query";
+import { color } from "framer-motion";
 import { it } from "node:test";
 
 const items = [
@@ -46,6 +47,8 @@ const items = [
   },
 ];
 
+// type fetchItemProps = {
+
 let currentIndex = 0;
 const fetchItem = async () => {
   if (currentIndex >= items.length) {
@@ -53,18 +56,32 @@ const fetchItem = async () => {
   }
   const currentItem = items[currentIndex];
   currentIndex++;
-  return currentItem;
+  return { currentItem, color: currentItem.color };
 };
 
-const useItem = () => {
+export const useItem = () => {
   return useQuery({
     queryKey: ["item"],
-    queryFn: fetchItem,
+    queryFn: async () => {
+      const { currentItem } = await fetchItem();
+      return currentItem;
+    },
     refetchInterval: 5000, // Refetch every 5 seconds
     refetchIntervalInBackground: true,
     staleTime: Infinity, // Keep data fresh indefinitely
     gcTime: 0, // Do not cache the data
   });
 };
-
-export default useItem;
+export const useColor = () => {
+  return useQuery({
+    queryKey: ["color"],
+    queryFn: async () => {
+      const { color } = await fetchItem();
+      return color;
+    },
+    refetchInterval: 5000, // Refetch every 5 seconds
+    refetchIntervalInBackground: true,
+    staleTime: Infinity, // Keep data fresh indefinitely
+    gcTime: 0, // Do not cache the data
+  });
+};

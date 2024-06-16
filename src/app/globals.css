@@ -74,3 +74,26 @@
     @apply bg-background text-foreground;
   }
 }
+
+.hover-underline-animation {
+  position: relative;
+  /* color: #64FFDA; */
+  padding-bottom: 10px;
+}
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #64ffda;
+  transform-origin: bottom center;
+
+  transition: transform 0.15s ease-in-out;
+}
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
