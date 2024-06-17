@@ -1,14 +1,5 @@
-// import useItem from "@/lib/fetchItems";
-// import useItem from "@/lib/fetchItems";
-
 import type { Config } from "tailwindcss";
 
-// let itemColor: string | undefined = "";
-// function ReturnItem() {
-//   const { data: item } = useItem();
-//   itemColor = item?.color;
-//   return itemColor;
-// }
 const config = {
   darkMode: ["class"],
   content: [

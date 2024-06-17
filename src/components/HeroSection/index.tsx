@@ -4,12 +4,12 @@ import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import MaxWidthWrapper from "./MaxWidthWrapper";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 import YStack from "@/components/ui/YStack";
 import XStack from "@/components/ui/XStack";
-// import { items } from "./data";
+import { useItem } from "@/lib/fetchItem";
+import StackCard from "./StackCard";
 // import { useColor } from "@/app/customHooks/useColor";
-// import { cn } from "@/utils/classnames"; // Make sure to implement this utility function
 // import TriangleLogo from "./TriangleLogo";
 // import StackCard from "./StackCard";
 // import VideoModalButton from "./VideoModalButton";
@@ -42,8 +42,9 @@ const whileHover = {
 };
 
 const HeroSection = () => {
-  //   const index = useColor();
   const [isHovered, setIsHovered] = useState(false);
+  const { data: item, isPending, isFetching } = useItem();
+  console.log("item color", item?.color);
 
   return (
     <MaxWidthWrapper>
@@ -54,13 +55,13 @@ const HeroSection = () => {
             "flex-col md:flex-row"
           )}>
           <YStack className="items-center justify-center">
-            {/* <StackCard /> */}
+            <StackCard />
             <XStack className="mt-4 mb-2">
               <MotionButton
                 className="flex items-center px-3 py-2 font-semibold text-white rounded"
                 animate={{
                   color: ["#fff", "#4ff3cc"],
-                  // backgroundColor: [items[index]?.color, "#565C60"],
+                  backgroundColor: [item?.color, "#565C60"],
                 }}
                 whileTap={{ scale: 0.8 }}
                 whileHover={whileHover.letsTalk}

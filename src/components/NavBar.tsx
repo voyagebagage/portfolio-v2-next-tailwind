@@ -3,14 +3,14 @@ import { cn } from "@/lib/utils";
 import XStack from "@/components/ui/XStack";
 import { useEffect, useRef, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { useColor } from "@/lib/fetchItem";
+import { useItem } from "@/lib/fetchItem";
 import { TriangleLogoSmall } from "./ui/TriangleLogoSmall";
 import Highlight from "./ui/Highlight";
 // import { getToken } from "@/app/utils/tokenManager";
 // import BurgerMenu from "./BurgerMenu";
 // import MIconButton from "../../MIconButton";
 // import { ChevronUpIcon } from "@heroicons/react/outline";
-// import { useColor } from "@/app/customHooks/useColor";
+// import { useItem } from "@/app/customHooks/useItem";
 
 type Props = {
   visitingName: string | undefined;
@@ -18,9 +18,9 @@ type Props = {
 };
 // { visitingName, setVisitingName }: Props
 const NavBar = () => {
-  //   const index = useColor();
+  //   const index = useItem();
   const [positionFromTop, setPositionFromTop] = useState(false);
-  const { data: color, isPending, isFetching } = useColor();
+  const { data: item, isPending, isFetching } = useItem();
 
   useEffect(() => {
     // fetchName();
@@ -41,7 +41,7 @@ const NavBar = () => {
   //       setVisitingName(nameInToken);
   //     }
   //   };
-  console.log(color);
+  console.log("navbar" + item?.color);
   return (
     <>
       <XStack
@@ -57,17 +57,13 @@ const NavBar = () => {
         </div>
 
         <p
-          className={cn(
-            "text-xl font-bold bg-clip-text text-transparent",
-            {
-              "ml-0": positionFromTop,
-              "ml-[-10rem]": !positionFromTop,
-              "text-myCyan": isPending || isFetching,
-            }
-            // `from-${color} to-myCyan`
-          )}
+          className={cn("text-xl font-bold bg-clip-text text-transparent", {
+            "ml-0": positionFromTop,
+            "ml-[-10rem]": !positionFromTop,
+            "text-myCyan": isPending || isFetching,
+          })}
           style={{
-            backgroundImage: `linear-gradient(to right, ${color}, #4ff3cc)`,
+            backgroundImage: `linear-gradient(to right, ${item?.color}, #4ff3cc)`,
           }}>
           Welcome
           {/* {visitingName} */}
