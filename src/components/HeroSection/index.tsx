@@ -48,11 +48,11 @@ const HeroSection = () => {
   console.log("item color", item?.color);
 
   return (
-    <MaxWidthWrapper className="flex items-center justify-center pt-[8.3vh] mt-2 bg-pink-200 bg-opacity-20">
+    <MaxWidthWrapper className="flex items-center justify-center pt-[8.3vh] mt-6 bg-pink-200 bg-opacity-20">
       {/* <XStack className="w-full items-center"> */}
       <XStack
         className={cn(
-          "flex bg-slate-400 bg-opacity-10 gap-56 w-11/12 mb-6",
+          "flex justify-end bg-slate-400 bg-opacity-10 gap-56 w-11/12 mb-6",
           "flex-col md:flex-row"
         )}>
         {/* <XStack className="flex items-center justify-center bg-slate-400"> */}
@@ -105,7 +105,7 @@ const HeroSection = () => {
         </YStack>
         {/* </XStack> */}
         <XStack
-          className="items-start justify-end cursor-pointer w-2/5 h-40 pl-2 "
+          className="items-start justify-end cursor-pointer w-2/5 h-40 pl-2 gap-4"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}>
           <TailwindNextImage
@@ -132,7 +132,7 @@ const HeroSection = () => {
               borderColor: "modeDarkBg",
             }}
           />
-          <TriangleLogo className="flex self-center" />
+          <TriangleLogo className="flex " />
         </XStack>
 
         {/* <TriangleLogo />
