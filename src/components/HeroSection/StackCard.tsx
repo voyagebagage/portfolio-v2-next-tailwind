@@ -21,7 +21,7 @@ const StackCard = () => {
     },
     boxShadow: {
       duration: (duration - 1) / 1000,
-      type: "inertia",
+      type: "spring",
       ease: "easeInOut",
       repeat: Infinity,
       repeatType: "loop",
@@ -40,7 +40,8 @@ const StackCard = () => {
         <motion.div
           className="w-80 h-80 rounded-full"
           layout
-          transition={transition}>
+          // transition={transition}
+        >
           <Suspense
             fallback={
               <TailwindNextImage

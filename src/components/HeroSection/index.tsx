@@ -11,6 +11,7 @@ import { useItem } from "@/lib/fetchItem";
 import StackCard from "./StackCard";
 import { TailwindNextImage } from "../ui/TailwindNextImage";
 import { TriangleLogo } from "../ui/TriangleLogo";
+import VideoModalButton from "./VideoModalButton";
 // import { useColor } from "@/app/customHooks/useColor";
 // import StackCard from "./StackCard";
 // import VideoModalButton from "./VideoModalButton";
@@ -52,7 +53,7 @@ const HeroSection = () => {
       {/* <XStack className="w-full items-center"> */}
       <XStack
         className={cn(
-          "flex justify-end bg-slate-400 bg-opacity-10 gap-56 w-11/12 mb-6",
+          "flex justify-end bg-slate-400 bg-opacity-10 gap-44 w-11/12 mb-6",
           "flex-col md:flex-row"
         )}>
         {/* <XStack className="flex items-center justify-center bg-slate-400"> */}
@@ -105,7 +106,7 @@ const HeroSection = () => {
         </YStack>
         {/* </XStack> */}
         <XStack
-          className="items-start justify-end cursor-pointer w-2/5 h-40 pl-2 gap-4"
+          className="relative items-start justify-end cursor-pointer w-2/5 h-40 pl-2 gap-4"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}>
           <TailwindNextImage
@@ -133,10 +134,8 @@ const HeroSection = () => {
             }}
           />
           <TriangleLogo className="flex " />
+          <VideoModalButton isHovered={isHovered} />
         </XStack>
-
-        {/* <TriangleLogo />
-          <VideoModalButton isHovered={isHovered} /> */}
       </XStack>
       {/* </XStack> */}
     </MaxWidthWrapper>

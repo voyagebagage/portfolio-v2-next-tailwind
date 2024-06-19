@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/NavBar";
 import Provider from "./provider/Provider";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 // import Provider from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });

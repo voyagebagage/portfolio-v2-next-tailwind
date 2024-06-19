@@ -6,6 +6,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useItem } from "@/lib/fetchItem";
 import { TriangleLogoSmall } from "./ui/TriangleLogoSmall";
 import Highlight from "./ui/Highlight";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 // import { getToken } from "@/app/utils/tokenManager";
 // import BurgerMenu from "./BurgerMenu";
 // import MIconButton from "../../MIconButton";
@@ -43,18 +44,16 @@ const NavBar = () => {
   //   };
   console.log("navbar" + item?.color);
   return (
-    <>
-      <XStack
+    <XStack className="justify-center">
+      <MaxWidthWrapper
         className={cn(
-          "fixed top-0 w-full items-center justify-between backdrop-blur-lg z-[99009] max-h-[8.3vh]",
+          " fixed top-0 flex items-center justify-between backdrop-blur-lg z-[99009] max-h-[8.3vh]",
           {
             "px-2 py-1": positionFromTop,
             "px-10 pt-1": !positionFromTop,
           }
         )}>
-        <div className="flex items-center">
-          <TriangleLogoSmall />
-        </div>
+        <TriangleLogoSmall />
 
         <p
           className={cn("text-xl font-bold bg-clip-text text-transparent", {
@@ -111,8 +110,8 @@ const NavBar = () => {
         <div className="md:hidden flex items-center">
           {/* <BurgerMenu /> */}
         </div>
-      </XStack>
-    </>
+      </MaxWidthWrapper>
+    </XStack>
   );
 };
 
