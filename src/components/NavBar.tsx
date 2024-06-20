@@ -44,74 +44,69 @@ const NavBar = () => {
   //   };
   console.log("navbar" + item?.color);
   return (
-    <XStack className="justify-center">
-      <MaxWidthWrapper
-        className={cn(
-          " fixed top-0 flex items-center justify-between backdrop-blur-lg z-[99009] max-h-[8.3vh]",
-          {
-            "px-2 py-1": positionFromTop,
-            "px-10 pt-1": !positionFromTop,
-          }
-        )}>
-        <TriangleLogoSmall />
-
-        <p
-          className={cn("text-xl font-bold bg-clip-text text-transparent", {
-            "ml-0": positionFromTop,
-            "ml-[-10rem]": !positionFromTop,
-            "text-myCyan": isPending || isFetching,
-          })}
-          style={{
-            backgroundImage: `linear-gradient(to right, ${item?.color}, #4ff3cc)`,
-          }}>
-          Welcome
-          {/* {visitingName} */}
-        </p>
-        {positionFromTop && (
-          <AnchorLink href="#home">
-            {/* <MIconButton
+    <MaxWidthWrapper
+      className={cn(
+        " fixed top-0 flex items-center justify-between backdrop-blur-lg z-[99009] max-h-[8.3vh]",
+        {
+          "px-2 py-1": positionFromTop,
+          "px-10 pt-1": !positionFromTop,
+        }
+      )}>
+      <TriangleLogoSmall />
+      <p
+        className={cn("text-xl font-bold bg-clip-text text-transparent", {
+          "ml-0": positionFromTop,
+          "ml-[-10rem]": !positionFromTop,
+          "text-myCyan": isPending || isFetching,
+        })}
+        style={{
+          backgroundImage: `linear-gradient(to right, ${item?.color}, #4ff3cc)`,
+        }}>
+        Welcome
+        {/* {visitingName} */}
+      </p>
+      {positionFromTop && (
+        <AnchorLink href="#home">
+          {/* <MIconButton
               aria-label="top"
               icon={<ChevronUpIcon className="h-5 w-5" />}
               size="sm"
               className="bg-teal-500 opacity-50 hover:opacity-100"
             /> */}
+        </AnchorLink>
+      )}
+      <div className="hidden md:flex justify-around gap-8">
+        <div className="cta hover:text-teal-400 ">
+          <AnchorLink href="#about" className="hover-underline-animation ">
+            <Highlight query={["00."]} className="text-teal-400 ">
+              00. About
+            </Highlight>
           </AnchorLink>
-        )}
-        <div className="hidden md:flex justify-around gap-8">
-          <div className="cta hover:text-teal-400 ">
-            <AnchorLink href="#about" className="hover-underline-animation ">
-              <Highlight query={["00."]} className="text-teal-400 ">
-                00. About
-              </Highlight>
-            </AnchorLink>
-          </div>
-          <div className="cta hover:text-teal-400">
-            <AnchorLink href="#work" className="hover-underline-animation">
-              <Highlight query={["01."]} className="text-teal-400">
-                01. Work
-              </Highlight>
-            </AnchorLink>
-          </div>
-          <div className="cta hover:text-teal-400">
-            <AnchorLink href="#projects" className="hover-underline-animation">
-              <Highlight query={["10."]} className="text-teal-400">
-                10. Projects
-              </Highlight>
-            </AnchorLink>
-          </div>
-          <div className="cta hover:text-teal-400">
-            <AnchorLink href="#contact" className="hover-underline-animation">
-              <Highlight query={["11."]} className="text-teal-400">
-                11. Contact
-              </Highlight>
-            </AnchorLink>
-          </div>
         </div>
-        <div className="md:hidden flex items-center">
-          {/* <BurgerMenu /> */}
+        <div className="cta hover:text-teal-400">
+          <AnchorLink href="#work" className="hover-underline-animation">
+            <Highlight query={["01."]} className="text-teal-400">
+              01. Work
+            </Highlight>
+          </AnchorLink>
         </div>
-      </MaxWidthWrapper>
-    </XStack>
+        <div className="cta hover:text-teal-400">
+          <AnchorLink href="#projects" className="hover-underline-animation">
+            <Highlight query={["10."]} className="text-teal-400">
+              10. Projects
+            </Highlight>
+          </AnchorLink>
+        </div>
+        <div className="cta hover:text-teal-400">
+          <AnchorLink href="#contact" className="hover-underline-animation">
+            <Highlight query={["11."]} className="text-teal-400">
+              11. Contact
+            </Highlight>
+          </AnchorLink>
+        </div>
+      </div>
+      <div className="md:hidden flex items-center">{/* <BurgerMenu /> */}</div>
+    </MaxWidthWrapper>
   );
 };
 

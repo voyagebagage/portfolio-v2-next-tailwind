@@ -27,7 +27,7 @@ export default function RootLayout({
           inter.className
         )}>
         <Provider>
-          <main className="relative flex flex-col min-h-screen">
+          <main className="relative flex flex-col items-center min-h-screen">
             <NavBar />
             <div className="flex-grow flex-1">{children}</div>
           </main>
