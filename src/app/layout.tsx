@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import NavBar from "@/components/NavBar";
 import Provider from "./provider/Provider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import EmailDisplay from "@/components/Layout/EmailLayout";
 // import Provider from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,6 +29,7 @@ export default function RootLayout({
         )}>
         <Provider>
           <main className="relative flex flex-col items-center min-h-screen">
+            {/* <EmailDisplay /> */}
             <NavBar />
             <div className="flex-grow flex-1">{children}</div>
           </main>

@@ -42,7 +42,7 @@ const NavBar = () => {
   //       setVisitingName(nameInToken);
   //     }
   //   };
-  console.log("navbar" + item?.color);
+  // console.log("navbar" + item?.color);
   return (
     <MaxWidthWrapper
       className={cn(

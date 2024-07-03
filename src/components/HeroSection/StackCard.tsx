@@ -9,7 +9,7 @@ import { useItem } from "@/lib/fetchItem";
 const StackCard = () => {
   //   const index = useColor();
   const { data: item, isPending, isFetching } = useItem();
-  console.log("stackCard" + item?.IconName);
+  // console.log("stackCard" + item?.IconName);
   const duration = 2000;
   const transition = {
     default: {

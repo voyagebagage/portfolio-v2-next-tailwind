@@ -11,24 +11,45 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils"; // Ensure you have a utility to combine class names
 import Image from "next/image";
+import { log } from "console";
 
 type VideoModalButtonProp = {
-  isHovered: boolean;
+  isHovered: string;
+  setIsHovered: (isHovered: string) => void;
 };
 
-export default function VideoModalButton({ isHovered }: VideoModalButtonProp) {
+export default function VideoModalButton({
+  isHovered,
+  setIsHovered,
+}: VideoModalButtonProp) {
+  console.log("isHovered  " + isHovered.toLocaleUpperCase());
+
   return (
     <>
       <Dialog>
         <DialogTrigger asChild>
           <Button
-            className={cn(
-              "absolute top-[75%] transform -translate-y-[15%] transition-all duration-500 ease-in-out -z-[10] pl-10 hover:text-[#2F373C]",
-              {
-                "right-[-130px]": isHovered,
-                "right-[51px]": !isHovered,
+            onMouseEnter={() => {
+              if (isHovered === "on-image") {
+                setIsHovered("on-button");
+              } else {
+                setIsHovered("on-button");
+                // console.log("isHovered" + isHovered);
               }
-            )}>
+            }}
+            onMouseLeave={() => {
+              if (isHovered !== "on-image" || "on-button") setIsHovered("off");
+              // console.log("isHovered" + isHovered);
+            }}
+            className={cn(
+              "group absolute top-[75%] transform translate-y-[270%] transition-all duration-500 ease-in-out -z-[10] pl-10 group-hover:right-[45px] right-[230px] hover:text-[#2F373C]",
+              {
+                "right-[45px] block":
+                  isHovered !== "on-button" || "on-image&button",
+                "right-[230px]": isHovered === "off",
+              }
+            )}
+            style={{ border: "2px solid red" }}>
             introducing video
           </Button>
         </DialogTrigger>

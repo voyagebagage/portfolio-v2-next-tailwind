@@ -44,10 +44,10 @@ const whileHover = {
 };
 
 const HeroSection = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState("off");
   const { data: item, isPending, isFetching } = useItem();
-  console.log("item color", item?.color);
-
+  // console.log("item color", item?.color);
+  console.log("isHovered  " + isHovered.toLocaleUpperCase());
   return (
     <MaxWidthWrapper className="flex items-center justify-center pt-[8.3vh] mt-6 bg-pink-200 bg-opacity-20">
       {/* <XStack className="w-full items-center"> */}
@@ -106,9 +106,10 @@ const HeroSection = () => {
         </YStack>
         {/* </XStack> */}
         <XStack
-          className="relative items-start justify-end cursor-pointer w-2/5 h-40 pl-2 gap-4"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}>
+          className="relative items-start justify-end cursor-pointer w-2/5 h-40 pl-2 gap-4 group"
+          // onMouseEnter={() => setIsHovered(true)}
+          // onMouseLeave={() => setIsHovered("off")}
+          style={{ border: "2px solid red" }}>
           <TailwindNextImage
             src="/ProfilePic.png"
             alt="ProfilePic"
@@ -116,16 +117,29 @@ const HeroSection = () => {
             fill
             imageObjectFit="contain"
             // className="w-[298px] h-[298px] rounded-full flex-shrink-0 shadow-lg"
+            onMouseEnter={() => {
+              setIsHovered("on-image");
+              // console.log("isHovered" + isHovered);
+            }}
+            onMouseLeave={() => {
+              if (isHovered !== "on-image" || "on-button") {
+                setIsHovered("off");
+              } else {
+                setIsHovered("on-image");
+              }
+              // console.log("isHovered" + isHovered);
+            }}
             className={cn(
               "w-[298px] h-[298px] flex-shrink-0 border-[10px]",
               "rounded-full shadow-lg",
               "transition-all duration-300 ease-in-out transform",
-              isHovered ? "scale-105" : "scale-100"
+              isHovered == "on-image" ? "scale-105" : "scale-100"
             )}
             sizes="(max-width: 768px) 50vw,
           (max-width: 1200px) 50vw,
           33vw"
             style={{
+              border: "2px solid red",
               backgroundImage: `linear-gradient(to right, ${
                 item?.color || "#60DBFA"
               }, #4ff3cc, ${item?.color || "#60DBFA"})`,
@@ -134,7 +148,7 @@ const HeroSection = () => {
             }}
           />
           <TriangleLogo className="flex " />
-          <VideoModalButton isHovered={isHovered} />
+          <VideoModalButton isHovered={isHovered} setIsHovered={setIsHovered} />
         </XStack>
       </XStack>
       {/* </XStack> */}
