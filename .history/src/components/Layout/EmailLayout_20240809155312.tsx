@@ -43,29 +43,26 @@ const EmailLayout = () => {
                 <ChevronUp className="w-5 h-5" />
               </AnimatedIconButton>
             </AnchorLink>
-            <div className="w-4 h-px  bg-modeDarkText dark:bg-modeDarkText my-2" />
+            <div className="w-[0.8px] h-4 bg-modeDarkText dark:bg-modeDarkText my-2" />
           </motion.div>
         )}
       </AnimatePresence>
       <AnimatedIconButton onClick={handleClick} isActive={likeButton}>
         <ThumbsUp className="w-5 h-5" />
       </AnimatedIconButton>
-      <div className="w-4 h-px  bg-modeDarkText dark:bg-modeDarkText" />
+      <div className="w-[0.8px] h-4 bg-modeDarkText dark:bg-modeDarkText" />
       <AnimatedIconButton href="https://t.me/oliFantazor">
         <MessageCircle className="w-5 h-5" />
       </AnimatedIconButton>
-      <div className="w-4 h-px  bg-modeDarkText dark:bg-modeDarkText" />
+      <div className="w-[0.8px] h-4 bg-modeDarkText dark:bg-modeDarkText" />
       <AnimatedIconButton href="https://wa.me/33769654361?message=urlencodedtext I have a 10k job for you.">
         <Phone className="w-5 h-5" />
       </AnimatedIconButton>
-      <div className="w-4 h-px  bg-modeDarkText dark:bg-modeDarkText" />
+      <div className="w-[0.8px] h-4 bg-modeDarkText dark:bg-modeDarkText" />
       <Link href="mailto:idevandyou@gmail.com">
         <motion.span
           whileHover={{ y: -4 }}
-          className="writing-vertical-lr mt-3 text-sm text-modeDarkText dark:text-modeDarkText"
-          style={{
-            writingMode: "vertical-lr",
-          }}>
+          className="writing-vertical-lr mt-3 text-sm text-modeDarkText dark:text-modeDarkText">
           @email
         </motion.span>
       </Link>

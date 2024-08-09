@@ -47,7 +47,7 @@ const HeroSection = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const { data: item, isPending, isFetching } = useItem();
   // console.log("item color", item?.color);
-  // console.log("isHovered  " + isHovered);
+  console.log("isHovered  " + isHovered);
   return (
     <MaxWidthWrapper className="flex items-center justify-center pt-[8.3vh] mt-6 bg-pink-200 bg-opacity-20">
       {/* <XStack className="w-full items-center"> */}

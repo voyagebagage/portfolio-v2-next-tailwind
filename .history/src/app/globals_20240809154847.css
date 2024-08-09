@@ -7,9 +7,6 @@
     --color-mode-dark-text: #bff9e8;
     --color-mode-dark-bg: #30373d;
 
-    --background: 215 28% 12%;
-    --foreground: 145 20% 85%;
-
     --card: 215 28% 12%;
     --card-foreground: 145 20% 85%;
 
@@ -41,9 +38,6 @@
   .dark {
     --color-mode-dark-text: #30373d;
     --color-mode-dark-bg: #bff9e8;
-
-    --background: 215 28% 12%;
-    --foreground: 145 20% 85%;
 
     --card: 215 28% 12%;
     --card-foreground: 145 20% 85%;

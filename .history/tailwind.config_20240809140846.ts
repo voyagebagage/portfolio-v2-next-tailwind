@@ -9,18 +9,8 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        myCyan: "#4ff3cc",
-        modeDarkText: "var(--color-mode-dark-text)",
-        modeDarkBg: "var(--color-mode-dark-bg)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

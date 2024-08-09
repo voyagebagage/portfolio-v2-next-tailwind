@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/HeroSection/VideoModalButton.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1723187444250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1723187444250,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { useState } from \"react\";\nimport {\n  Dialog,\n  DialogTrigger,\n  DialogContent,\n  DialogOverlay,\n  DialogTitle,\n  DialogClose,\n} from \"@radix-ui/react-dialog\";\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\"; // Ensure you have a utility to combine class names\nimport Image from \"next/image\";\nimport { log } from \"console\";\n\ntype VideoModalButtonProp = {\n  isHovered: boolean;\n  setIsHovered: (isHovered: boolean) => void;\n};\n\nexport default function VideoModalButton({\n  isHovered,\n  setIsHovered,\n}: VideoModalButtonProp) {\n  // console.log(\"isHovered  \" + isHovered);\n\n  return (\n    <>\n      <Dialog>\n        <DialogTrigger\n          asChild\n          onMouseEnter={() => setIsHovered(true)}\n          onMouseLeave={() => setIsHovered(false)}>\n          <Button\n            className={cn(\n              \" absolute top-56 transition-all duration-500 ease-in-out -z-[10] pl-10  \",\n              {\n                \"right-[45px]\": isHovered,\n                \"right-[230px]\": !isHovered,\n              }\n            )}\n            style={{ border: \"2px solid red\" }}>\n            introducing video\n          </Button>\n        </DialogTrigger>\n        <DialogOverlay className=\"fixed inset-0 bg-black bg-opacity-50\" />\n        <DialogContent className=\"fixed inset-1/4 bg-white rounded-lg p-4 shadow-lg\">\n          <DialogTitle>video to introduce myself</DialogTitle>\n          <DialogClose asChild>\n            <button className=\"absolute top-2 right-2\">X</button>\n          </DialogClose>\n          <div className=\"w-full aspect-w-16 aspect-h-9\">\n            <Image\n              src=\"/404.jpg\"\n              alt=\"404\"\n              className=\"object-cover w-full h-full\"\n            />\n          </div>\n          <div className=\"flex justify-end mt-4\">\n            <button className=\"btn btn-blue mr-3\">Next</button>\n          </div>\n        </DialogContent>\n      </Dialog>\n    </>\n  );\n}\n"
+        }
+    ]
+}

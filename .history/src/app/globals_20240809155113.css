@@ -39,9 +39,6 @@
   }
 
   .dark {
-    --color-mode-dark-text: #30373d;
-    --color-mode-dark-bg: #bff9e8;
-
     --background: 215 28% 12%;
     --foreground: 145 20% 85%;
 

@@ -29,7 +29,7 @@ export default function RootLayout({
         )}>
         <Provider>
           <main className="relative flex flex-col items-center min-h-screen">
-            <EmailDisplay />
+            {/* <EmailDisplay /> */}
             <NavBar />
             <div className="flex-grow flex-1">{children}</div>
           </main>

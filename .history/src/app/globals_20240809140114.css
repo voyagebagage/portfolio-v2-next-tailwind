@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 215 28% 12%; /* Dark blue-gray */
+    --foreground: 145 20% 85%; /* Light mint green */
+
+    --card: 215 28% 12%; /* Same as background */
+    --card-foreground: 145 20% 85%; /* Light mint green */
+
+    --popover: 215 28% 12%; /* Same as background */
+    --popover-foreground: 145 20% 85%; /* Light mint green */
+
+    --primary: 250 50% 60%; /* Light purple */
+    --primary-foreground: 145 20% 85%; /* Light mint green */
+
+    --secondary: 145 20% 85%; /* Light mint green */
+    --secondary-foreground: 250 50% 60%; /* Light purple */
+
+    --muted: 145 20% 85%; /* Light mint green */
+    --muted-foreground: 215 16% 60%; /* Grayish blue */
+
+    --accent: 250 50% 60%; /* Light purple */
+    --accent-foreground: 145 20% 85%; /* Light mint green */
+
+    --destructive: 0 50% 50%; /* Red for destructive actions */
+    --destructive-foreground: 145 20% 85%; /* Light mint green */
+
+    --border: 215 28% 40%; /* Lighter dark blue-gray */
+    --input: 215 28% 40%; /* Lighter dark blue-gray */
+    --ring: 250 50% 60%; /* Light purple */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 215 28% 12%; /* Dark blue-gray */
+    --foreground: 145 20% 85%; /* Light mint green */
+
+    --card: 215 28% 12%; /* Same as background */
+    --card-foreground: 145 20% 85%; /* Light mint green */
+
+    --popover: 215 28% 12%; /* Same as background */
+    --popover-foreground: 145 20% 85%; /* Light mint green */
+
+    --primary: 250 50% 60%; /* Light purple */
+    --primary-foreground: 145 20% 85%; /* Light mint green */
+
+    --secondary: 145 20% 85%; /* Light mint green */
+    --secondary-foreground: 250 50% 60%; /* Light purple */
+
+    --muted: 145 20% 85%; /* Light mint green */
+    --muted-foreground: 215 16% 60%; /* Grayish blue */
+
+    --accent: 250 50% 60%; /* Light purple */
+    --accent-foreground: 145 20% 85%; /* Light mint green */
+
+    --destructive: 0 50% 50%; /* Red for destructive actions */
+    --destructive-foreground: 145 20% 85%; /* Light mint green */
+
+    --border: 215 28% 40%; /* Lighter dark blue-gray */
+    --input: 215 28% 40%; /* Lighter dark blue-gray */
+    --ring: 250 50% 60%; /* Light purple */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.hover-underline-animation {
+  position: relative;
+  /* color: #64FFDA; */
+  padding-bottom: 10px;
+}
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #64ffda;
+  transform-origin: bottom center;
+
+  transition: transform 0.15s ease-in-out;
+}
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}

@@ -62,10 +62,7 @@ const EmailLayout = () => {
       <Link href="mailto:idevandyou@gmail.com">
         <motion.span
           whileHover={{ y: -4 }}
-          className="writing-vertical-lr mt-3 text-sm text-modeDarkText dark:text-modeDarkText"
-          style={{
-            writingMode: "vertical-lr",
-          }}>
+          className="writing-vertical-lr mt-3 text-sm text-modeDarkText dark:text-modeDarkText">
           @email
         </motion.span>
       </Link>

@@ -22,7 +22,7 @@ export default function VideoModalButton({
   isHovered,
   setIsHovered,
 }: VideoModalButtonProp) {
-  // console.log("isHovered  " + isHovered);
+  console.log("isHovered  " + isHovered);
 
   return (
     <>
